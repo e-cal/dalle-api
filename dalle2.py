@@ -142,10 +142,11 @@ if __name__ == "__main__":
     token = os.environ.get("TOKEN", "")
     if not token:
         print("Make a .env file with the line:")
-        print('TOKEN="sess-[YOUR-TOKEN]"')
+        print('TOKEN="sess-[TOKEN]"')
         print(
-            "\nYou can find your token by logging in to labs.openai.com, open the network tab in your browser console, generate an image, and check the authorization header in the POST request"
+            "\nYou can find your token by logging in to labs.openai.com\nopen the network tab in your browser console\ngenerate an image\ncheck the authorization header in the POST request"
         )
+        exit()
     dalle = Dalle2(token)
     prompt = "peanut butter and jelly sandwich in the shape of a Rubik's cube, professional food photography"
     dalle.generate(prompt, download=True, dir="images", name="max-pbj")
